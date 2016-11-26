@@ -19,27 +19,6 @@ int print_prompt()
 						return 0;
 }
 
-//ls 명령 실행 (명령 인자 X)
-int ls_dir(){
-	DIR *dp;
-	struct dirent *dent;
-	struct stat sbuf;
-	char dirname[BUF_SIZE] = {'\0'};
-	char path[BUF_SIZE];
-
-	if((dp = opendir("./")) == NULL){
-			perror("opendir error");
-			exit(1);
-	}
-	while ((dent = readdir(dp))){
-		strcpy(dirname, dent->d_name);
-		printf("%s	", dirname);
-	}
-	closedir(dp);
-	
-	return 0;
-}
-
 int main()
 {
 		char str[BUF_SIZE]={'\0'};
